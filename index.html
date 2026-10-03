@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeyFinder — Music Key Detector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="app">
+
+    <header>
+      <div class="logo">🎵 KeyFinder</div>
+      <p>Detect the musical key of a voice, instrument, or song.</p>
+    </header>
+
+    <section class="controls">
+
+      <button id="micBtn" class="primary">
+        🎤 Listen to Microphone
+      </button>
+
+      <label class="upload">
+        🎧 Upload Song
+        <input
+          type="file"
+          id="audioFile"
+          accept="audio/*"
+          hidden
+        >
+      </label>
+
+      <button id="stopBtn" class="danger" disabled>
+        ⏹ Stop
+      </button>
+
+    </section>
+
+    <section class="result">
+
+      <div class="result-label">
+        DETECTED KEY
+      </div>
+
+      <div id="keyDisplay" class="key">
+        —
+      </div>
+
+      <div id="confidence" class="confidence">
+        Waiting for audio...
+      </div>
+
+    </section>
+
+    <section class="detected">
+
+      <div class="card">
+        <span>Current Note</span>
+        <strong id="note">—</strong>
+      </div>
+
+      <div class="card">
+        <span>Frequency</span>
+        <strong id="frequency">— Hz</strong>
+      </div>
+
+      <div class="card">
+        <span>Detected Notes</span>
+        <strong id="noteCount">0</strong>
+      </div>
+
+    </section>
+
+    <section class="visualizer">
+
+      <h2>Pitch Monitor</h2>
+
+      <canvas id="visualizer"></canvas>
+
+      <div class="meter">
+        <div id="meterFill"></div>
+      </div>
+
+    </section>
+
+    <section class="piano">
+
+      <h2>Detected Note</h2>
+
+      <div class="keys">
+
+        <div class="white" data-note="C">C</div>
+        <div class="black" data-note="C#">C#</div>
+
+        <div class="white" data-note="D">D</div>
+        <div class="black" data-note="D#">D#</div>
+
+        <div class="white" data-note="E">E</div>
+
+        <div class="white" data-note="F">F</div>
+        <div class="black" data-note="F#">F#</div>
+
+        <div class="white" data-note="G">G</div>
+        <div class="black" data-note="G#">G#</div>
+
+        <div class="white" data-note="A">A</div>
+        <div class="black" data-note="A#">A#</div>
+
+        <div class="white" data-note="B">B</div>
+
+      </div>
+
+    </section>
+
+    <div id="status" class="status">
+      Ready.
+    </div>
+
+    <footer>
+      KeyFinder • Browser-based music analysis
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
